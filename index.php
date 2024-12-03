@@ -118,11 +118,12 @@ $userType = $_SESSION['userType']; // Mendapatkan tipe user (admin atau kader)
                             Informasi
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="informasiDropdown">
+                            <?php if ($userType == 'admin'): ?>
                             <li><a class="dropdown-item" href="daftar_kegiatan.php">Informasi Kegiatan</a></li>
+                            <?php endif; ?>
                             <li><a class="dropdown-item" href="#">Informasi Pendanaan Dana Sehat</a></li>
                             <?php if ($userType == 'kader'): ?>
                             <li><a class="dropdown-item" href="informasi_akun.php">Informasi Akun</a></li>
-
                             <?php endif; ?>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#logoutModal">Logout</a></li>
@@ -143,6 +144,11 @@ $userType = $_SESSION['userType']; // Mendapatkan tipe user (admin atau kader)
                             <li><a class="dropdown-item" href="#">Data Kader</a></li>
                             <li><a class="dropdown-item" href="#">Data Posyandu</a></li>
                         </ul>
+                    </li>
+                    <?php endif; ?>
+                    <?php if ($userType == 'kader'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Laporan</a>
                     </li>
                     <?php endif; ?>
 
